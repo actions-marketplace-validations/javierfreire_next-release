@@ -1,0 +1,26 @@
+name: 'Next release info'
+description: 'Calculate which is the next version and the changelog for the next release using conventional commits'
+inputs:
+  tag-prefix:
+    description: 'Prefix used in front of the semantic version'
+    default: 'v'
+  paths:
+    description: 'Only commits that update those <paths> will be taken into account. It is useful to support monorepos'
+    default: '.'
+outputs:
+  current-version:
+    description: 'Current version'
+  current-version-tag:
+    description: 'Current version tag'
+  next-version:
+    description: 'Next version'
+  next-version-tag:
+    description: 'Next version tag'
+  changelog:
+    description: 'Changelog of the next version'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - '${{ inputs.tag-prefix }}'
+    - '${{ inputs.paths }}'
