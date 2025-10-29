@@ -1,4 +1,4 @@
-FROM convco/convco:0.3.11
+FROM convco/convco:0.6.2
 
 RUN mv /entrypoint /bin/convco
 
